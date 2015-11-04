@@ -1,0 +1,121 @@
+##################################################################
+#                    College Persistence                         #
+#               Config File for parameters_vs_time               #
+##################################################################
+
+
+############################
+# Sliding window setup     #
+############################
+
+earliest_train_start: 2010-01-01
+latest_train_start: 2014-01-01
+train_period_months: 12
+time_steps_months: 12
+
+
+############################
+# Feature lists            #
+############################
+features:
+- StudentAgeAtEnrollment
+- HSClass
+# - StudentEthnicity
+- StudentGender
+- HighSchoolMostRecentlyAttended
+# - CollegeName
+- AlumsEverAttendedSpecificCollege
+- historicallyBlackCollege
+- sixYearMinorityTransferRate
+- sixYearTransferRate
+# - sixYearMinorityGraduationRate
+- sixYearGraduationRate
+- isForProfit
+- isPrivate
+- finalUnweightedGPA
+- highestCompositeACT
+# - numberAPsYear12
+- numberAPsYear11
+# - numberAPsYear10
+# - numberHonsYear12
+- numberHonsYear11
+# - numberHonsYear10
+# - maxRankYear12
+- maxRankYear11
+# - maxRankYear10
+# - minRankYear12
+- minRankYear11
+# - minRankYear10
+# - avgRankYear12
+- avgRankYear11
+# - avgRankYear10
+- totalNumberofContacts
+# - ContactMediumPercentages
+# - everSpecialEd
+# - everFreeLunch
+# - isFirstGen
+# - degreeSubject
+# - IsFirstEnrollment
+# - SpringEnrollment
+- AvgHSAway
+- AvgHSTardy
+- AvgHSUnexcused
+- AvgHSExcused
+- AvgHSSuspended
+- AvgHSEarlyDismissal
+# - AvgMSAway
+# - AvgMSTardy
+# - AvgMSUnexcused
+# - AvgMSExcused
+# - AvgMSSuspended
+# - AvgMSEarlyDismissal
+# - is4year
+- barronsSelectivity
+- distanceFromChicago
+- percentAccepted
+- percentEnroll
+- percentFemale
+- percentAfricanAmerican
+- percentHispanic
+- percentInState
+- percentPellGrant
+- avgNetPrice
+- netPrice0_30
+- netPrice30_48
+- netPrice48_75
+- locale
+- sizeRange
+# - year12GPA
+# - year11GPA
+# - year10GPA
+# - year9GPA
+- ChangeInUnweightedGPA
+- avgYear11_12UnweightedGPA
+- avgYear9_10UnweightedGPA
+
+
+############################
+# Target variable          #
+############################
+target:
+- PersistThreeSemesters
+
+
+############################
+# Sample selection         #
+############################
+sample: # TODO figure out what to pass here / is it safe / what's a good idea?
+- PersistTwoSemesters: =True
+- DegreeType: ='Bachelors'
+- NetworkKIPPNJ: =False
+- NetworkNoble: =True
+
+schema: common
+
+
+############################
+# Output                   #
+############################
+looplog: 'looplog.md'
+logFolder: visualization_logs/params_vs_time
+summary_only: True

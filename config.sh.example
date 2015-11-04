@@ -1,0 +1,19 @@
+#############################
+### run_project.sh CONFIG ###
+#############################
+
+## PostgreSQL database credentials
+##		These settings are REQUIRED.
+db_host="hostURL"
+db_user="myUserName"
+db_pw="myPassword"
+db_name="myDBname"
+
+## Setting to mount data folder located on a server via SSH
+## 		These settings are OPTIONAL.
+##		If there is already a non-empty data directory in
+##		the root of the repo, no remote mounting will be performed.
+ssh_host=127.2.13.170
+ssh_user=mstepner
+ssh_opts="-o IdentityFile=~/.ssh/dssg.pem -o defer_permissions"
+ssh_datafolder="/mnt/data/education_data/dssg2015/persistence"

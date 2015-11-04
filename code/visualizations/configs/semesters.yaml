@@ -1,0 +1,103 @@
+##################################################################
+#                    College Persistence                         #
+#                  Parameters vs Semesters                       #
+##################################################################
+
+
+###################################
+# Time window for data retrieval  #
+###################################
+
+start_date: 2010-01-01
+end_date: 2015-01-01
+
+############################
+# Feature lists            #
+############################
+features:
+# - AvgHSAway
+# - AvgHSTardy
+# - AvgHSUnexcused
+# - AvgHSExcused
+# - AvgHSSuspended
+# - AvgHSEarlyDismissal
+- AvgMSAway
+- AvgMSTardy
+- AvgMSUnexcused
+- AvgMSExcused
+- AvgMSSuspended
+- AvgMSEarlyDismissal
+- finalUnweightedGPA
+# - StudentEthnicity
+- StudentGender
+# - HighSchoolMostRecentlyAttended
+- StudentAgeAtEnrollment
+- AlumsEverAttendedSpecificCollege
+# - isForProfit
+# - isPrivate
+# - historicallyBlackCollege
+# - sixYearMinorityTransferRate
+# - sixYearTransferRate
+- sixYearMinorityGraduationRate
+- sixYearGraduationRate
+- year12GPA
+- year11GPA
+- avgRankYear12
+# - avgRankYear11
+# - avgRankYear10
+# - highestCompositeACT
+- numberAPsYear12
+# - numberAPsYear11
+# - numberAPsYear10
+# - numberHonsYear12
+# - numberHonsYear11
+# - numberHonsYear10
+# - maxRankYear12
+# - maxRankYear11
+# - maxRankYear10
+# - minRankYear12
+# - minRankYear11
+# - minRankYear10
+# - totalNumberofContacts
+# - ContactMediumPercentages
+- everSpecialEd
+- everFreeLunch
+# - isFirstGen
+# - degreeSubject
+- IsFirstEnrollment
+- SpringEnrollment
+- barronsSelectivity
+- distanceFromChicago
+- percentAccepted
+# - percentEnroll
+# - percentFemale
+- percentAfricanAmerican
+- percentHispanic
+# - percentInState
+- percentPellGrant
+# - avgNetPrice
+# - netPrice0_30
+# - netPrice30_48
+# - netPrice48_75
+# - locale
+- sizeRange
+- avgYear11_12UnweightedGPA
+
+
+# Note semesters.py is iterating over target variables, so there's 
+# setting the semester variables in this file
+
+############################
+# Sample selection         #
+############################
+sample:
+- DegreeType: ='Bachelors'
+- NetworkKIPPNJ: =False
+- NetworkNoble: =True
+
+schema: common
+
+############################
+# Output                   #
+############################
+logFolder: visualization_logs/params_vs_semester_forTopFeats_kipp

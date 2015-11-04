@@ -1,0 +1,287 @@
+##################################################################
+#                    College Persistence                         #
+#                        Experiment                              #
+##################################################################
+
+
+############################
+# Sliding window setup     #
+############################
+
+# Use this to specify cross-validation parameters
+# earliest_train_start: Specify how far back you want to start training
+# latest_train_start: Specify the last time at which you want to build a training set
+# train_period_months: Specify length of train window
+# test_period_months: Specify length of test window
+# time_steps_months: Specify the step between training windows
+# 
+# NOTE: this will set up multiple time steps that will be looped over
+# set earliest_train_start and latest_train_start to be identical to limit the loop to a single time window
+
+earliest_train_start: 2008-09-01
+latest_train_start: 2010-09-01
+train_period_months: 36
+test_period_months: 12
+time_steps_months: 12
+
+
+########################################################
+# Model selection                                      #
+
+########################################################
+
+# - If a parameter is given as a list, we will     
+# try out all its values. (So if a single parameter is 
+# supposed to be a list, you have to nest it!)         
+# - If no setting is specified for a parameter,   
+# the default is the sk-learn default for the model 
+# - All currently implemented models are in this list
+
+models:
+- LogisticRegression:
+   implementation: scikit
+   penalty: [l1,l2]
+   C: [0.05,0.1,0.5,1.0]
+   class_weight:
+     - auto
+     - 
+     - 0: 10
+       1: 1
+     - 0: 100
+       1: 1
+- SVM:
+   cache_size: 5000
+   verbose: True
+   C: [0.00001,0.0001,0.001,0.01,0.1,1,10]
+   kernel: [linear, rbf, poly, sigmoid]
+   class_weight:
+     - auto
+     - 
+     - 0: 10
+       1: 1
+     - 0: 100
+       1: 1
+- RandomForest:
+   n_estimators: [100,500,2000,4000]
+   criterion: [gini,entropy]
+   max_depth: [2,3,5,8,10,20]
+   max_features: [sqrt,log2,1.0]
+   min_samples_split: [2,5,10]
+   class_weight:
+     - auto
+     - subsample
+     - 
+     - 0: 10
+       1: 1
+     - 0: 100
+       1: 1
+- ExtraTreesClassifier:
+   n_estimators: [1,10,50,300,1000,2000]
+   criterion: [gini, entropy]
+   max_depth: [2,3,5,8,10,20]
+   max_features: [sqrt,log2,1.0]
+   min_samples_split: [2,5,10]
+   class_weight:
+     - auto
+     - subsample
+     - 
+     - 0: 10
+       1: 1
+     - 0: 100
+       1: 1
+- AdaBoost:
+   algorithm : [SAMME, SAMME.R]
+   n_estimators: [1,10,100,1000]
+- GBC:
+   n_estimators: [1,10,100,1000]
+   learning_rate : [0.01,0.05,0.1]
+   subsample: [0.1,0.5,1.0]
+   max_depth: [1,3,5,15]
+- GNB
+- DTC:
+   criterion: [gini, entropy]
+   max_depth: [1,5,10,20]
+   max_features: [sqrt,log2]
+   min_samples_split: [2,5,10]
+- SGD:
+   loss: [modified_huber, hinge, log, perceptron]
+   penalty: [l2, l1, elasticnet]
+- KNN:
+   n_neighbors: [50,100,150,250]
+   weights: [uniform, distance]
+   algorithm: [auto, ball_tree, kd_tree]
+
+
+
+############################
+# Feature lists            #
+############################
+
+# All currently implemented features are listed here, and their
+# implementation can be found in all_features.py 
+# 
+# To loop over multiple lists of features, create sublists using the yaml
+# list indentation syntax (e.g. see two sublists below)
+# - 
+#  - Feature 1
+#  - Feature 2
+#  - Feature 3
+# 
+# - 
+#  - Feature 1
+#  - Feature 2
+#  - Feature 4
+
+features:
+-
+ - StudentAgeAtEnrollment
+ - StudentEthnicity
+ - StudentGender
+ - HighSchoolMostRecentlyAttended
+ - AlumsEverAttendedSpecificCollege
+ - historicallyBlackCollege
+ - sixYearMinorityTransferRate
+ - sixYearTransferRate
+ - sixYearMinorityGraduationRate
+ - sixYearGraduationRate
+ - isForProfit
+ - isPrivate
+ - finalUnweightedGPA
+ - avgRankYear12
+ - avgRankYear11
+ - avgRankYear10
+ - highestCompositeACT
+ - numberAPsYear12
+ - numberAPsYear11
+ - numberAPsYear10
+ - numberHonsYear12
+ - numberHonsYear11
+ - numberHonsYear10
+ - maxRankYear12
+ - maxRankYear11
+ - maxRankYear10
+ - minRankYear12
+ - minRankYear11
+ - minRankYear10
+ - avgRankYear12
+ - avgRankYear11
+ - avgRankYear10
+ - totalNumberofContacts
+ - ContactMediumPercentages
+ - everSpecialEd
+ - everFreeLunch
+ - isFirstGen
+ - degreeSubject
+ - IsFirstEnrollment
+ - SpringEnrollment
+ - AvgHSAway
+ - AvgHSTardy
+ - AvgHSUnexcused
+ - AvgHSExcused
+ - AvgHSSuspended
+ - AvgHSEarlyDismissal
+ - AvgMSAway
+ - AvgMSTardy
+ - AvgMSUnexcused
+ - AvgMSExcused
+ - AvgMSSuspended
+ - AvgMSEarlyDismissal
+ - is4year
+ - barronsSelectivity
+ - distanceFromChicago
+ - percentAccepted
+ - percentEnroll
+ - percentFemale
+ - percentAfricanAmerican
+ - percentHispanic
+ - percentInState
+ - percentPellGrant
+ - avgNetPrice
+ - netPrice0_30
+ - netPrice30_48
+ - netPrice48_75
+ - locale
+ - sizeRange
+ - year12GPA
+ - year11GPA
+ - year10GPA
+ - year9GPA
+ - ChangeInUnweightedGPA
+ - avgYear11_12UnweightedGPA
+ - avgYear9_10UnweightedGPA
+
+############################
+# Feature products         #
+############################
+
+products:
+
+############################
+# Target variable          #
+############################
+
+# Specify the target variable (one of the options listed below)
+
+target:
+# - PersistOneSemester
+# - PersistTwoSemesters
+- PersistThreeSemesters
+# - PersistFourSemesters
+# - PersistFiveSemesters
+# - PersistSixSemesters
+# - PersistSevenSemesters
+# - PersistEightSemesters
+
+
+############################
+# Sample selection         #
+############################
+
+# Specify the restrictions on the data (these end up being added as where clauses 
+# to the end of the SQL query)
+# 
+# To generate conditional models, set a restriction of persist N semesters 
+# here, and persist N+1 semesters as the target variable above
+# e.g. set the target to PersistThreeSemesters, and the sample to PersistTwoSemesters
+# 
+# All current models are being run on Bachelors degrees 
+# 
+# To run a model on only one partner network, set that network to True
+
+sample: 
+# - PersistOneSemester: = True
+- PersistTwoSemesters: =True
+# - PersistThreeSemesters: = True
+# - PersistFourSemesters: = True
+# - PersistFiveSemesters: = True
+# - PersistSixSemesters: = True
+# - PersistSevenSemesters: = True
+- DegreeType: ='Bachelors'
+# - NetworkKIPPNJ: =True
+- NetworkNoble: =True
+
+############################
+# Misc         #
+############################ 
+
+# Specify how missing values should be handled
+# Possible options: strict, lax
+# if strict = on encountering missing values, the model will error
+# if lax = the model will drop rows with missing values, and will log the number of
+# missing values in every column
+
+nan_handling: lax
+
+
+############################
+# Output                   #
+############################
+
+# looplog: file that logs a summary output (AUC, precision in the top 10% for every model)
+# logFolder: stores individual model logs and pickles of each model
+# summary_only: if True, will only write to looplog and will not generate individual model logs
+# Best used if looping over many models to speed performance. 
+
+looplog: 'looplog.md'
+logFolder: modeling_log
+summary_only: False

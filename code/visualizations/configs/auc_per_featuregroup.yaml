@@ -1,0 +1,222 @@
+##################################################################
+#                    College Persistence                         #
+#            Config File for auc_per_featuregroup                #
+##################################################################
+
+
+############################
+# Sliding window setup     #
+############################
+
+train_start: 2012-01-01
+split_date: 2014-01-01
+test_end: 2015-01-01
+
+#####################
+# Model selection   #
+#####################
+model:
+ LogisticRegression:
+   implementation: scikit
+   penalty: l1
+   C: 1.0
+
+############################
+# Feature groups           #
+############################
+features:
+- Demographic:
+  - StudentEthnicity
+  - StudentGender
+  - HighSchoolMostRecentlyAttended
+  - everSpecialEd
+  - everFreeLunch
+  - isFirstGen
+- HS Academic:
+  - finalUnweightedGPA
+  - year12GPA
+  - year11GPA
+  - year10GPA
+  - year9GPA
+  - ChangeInUnweightedGPA
+  - avgYear11_12UnweightedGPA
+  - avgYear9_10UnweightedGPA
+  - avgRankYear12
+  - avgRankYear11
+  - avgRankYear10
+  - highestCompositeACT
+  - numberAPsYear12
+  - numberAPsYear11
+  - numberAPsYear10
+  - numberHonsYear12
+  - numberHonsYear11
+  - numberHonsYear10
+  - maxRankYear12
+  - maxRankYear11
+  - maxRankYear10
+  - minRankYear12
+  - minRankYear11
+  - minRankYear10
+  - avgRankYear12
+  - avgRankYear11
+  - avgRankYear10
+- GPA:
+  - ChangeInUnweightedGPA
+  - avgYear11_12UnweightedGPA
+  - avgYear9_10UnweightedGPA
+- College:
+  - AlumsEverAttendedSpecificCollege
+  - isPrivate
+  - isForProfit
+  - sixYearMinorityGraduationRate
+  - sixYearMinorityTransferRate
+  - is4year
+  - barronsSelectivity
+  - distanceFromChicago
+  - percentAccepted
+  - percentEnroll
+  - percentFemale
+  - percentAfricanAmerican
+  - percentHispanic
+  - percentInState
+  - percentPellGrant
+  - avgNetPrice
+  - netPrice0_30
+  - netPrice30_48
+  - netPrice48_75
+  - locale
+  - sizeRange
+- HS Behavioral:
+  - YearlyAvgAttendance
+  - TotalAttendance
+  - AvgHSTardy
+  - AvgHSSuspended
+  - AvgHSExcused
+  - AvgHSUnexcused
+  - AvgHSEarlyDismissal
+  - AvgHSAway
+- College Enrollment:
+  - SpringEnrollment
+  - degreeSubject
+  - Major
+  - IsFirstEnrollment
+  - StudentAgeAtEnrollment
+- Contact Features:
+  - totalNumberofContacts
+  - ContactMediumPercentages
+- All:
+  - StudentEthnicity
+  - StudentGender
+  - HighSchoolMostRecentlyAttended
+  - everSpecialEd
+  - everFreeLunch
+  - isFirstGen
+  - finalUnweightedGPA
+  - year12GPA
+  - year11GPA
+  - year10GPA
+  - year9GPA
+  - ChangeInUnweightedGPA
+  - avgYear11_12UnweightedGPA
+  - avgYear9_10UnweightedGPA
+  - avgRankYear12
+  - avgRankYear11
+  - avgRankYear10
+  - highestCompositeACT
+  - numberAPsYear12
+  - numberAPsYear11
+  - numberAPsYear10
+  - numberHonsYear12
+  - numberHonsYear11
+  - numberHonsYear10
+  - maxRankYear12
+  - maxRankYear11
+  - maxRankYear10
+  - minRankYear12
+  - minRankYear11
+  - minRankYear10
+  - avgRankYear12
+  - avgRankYear11
+  - avgRankYear10
+  - ChangeInUnweightedGPA
+  - avgYear11_12UnweightedGPA
+  - avgYear9_10UnweightedGPA
+  - AlumsEverAttendedSpecificCollege
+  - isPrivate
+  - isForProfit
+  - sixYearMinorityGraduationRate
+  - sixYearMinorityTransferRate
+  - is4year
+  - barronsSelectivity
+  - distanceFromChicago
+  - percentAccepted
+  - percentEnroll
+  - percentFemale
+  - percentAfricanAmerican
+  - percentHispanic
+  - percentInState
+  - percentPellGrant
+  - avgNetPrice
+  - netPrice0_30
+  - netPrice30_48
+  - netPrice48_75
+  - locale
+  - sizeRange
+  - YearlyAvgAttendance
+  - TotalAttendance
+  - AvgHSTardy
+  - AvgHSSuspended
+  - AvgHSExcused
+  - AvgHSUnexcused
+  - AvgHSEarlyDismissal
+  - AvgHSAway
+  - SpringEnrollment
+  - degreeSubject
+  - Major
+  - IsFirstEnrollment
+  - StudentAgeAtEnrollment
+  - totalNumberofContacts
+  - ContactMediumPercentages
+
+
+############################
+# Target variable          #
+############################
+target:
+# - PersistOneSemester
+# - PersistTwoSemesters
+- PersistThreeSemesters
+# - PersistFourSemesters
+# - PersistFiveSemesters
+# - PersistSixSemesters
+# - PersistSevenSemesters
+# - PersistEightSemesters
+
+############################
+# Sample selection         #
+############################
+sample: 
+# - PersistOneSemester: = True
+- PersistTwoSemesters: =True
+# - PersistThreeSemesters: = True
+# - PersistFourSemesters: = True
+# - PersistFiveSemesters: = True
+# - PersistSixSemesters: = True
+# - PersistSevenSemesters: = True
+- DegreeType: ='Bachelors'
+- NetworkKIPPNJ: =False
+- NetworkNoble: =True
+
+############################
+# Misc         #
+############################
+nan_handling: lax
+schema: common
+n_boot: 1500
+alpha: 0.05
+
+############################
+# Output                   #
+############################
+looplog: 'looplog.md'
+logFolder: vislog_auc_per_featuregroup

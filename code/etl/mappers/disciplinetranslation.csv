@@ -1,0 +1,106 @@
+UpdateDiscipline,StandardDiscipline,Severity from 1-5
+L1-Arriving Unprepared,Academic Conduct,1
+SC Sleeping in Class,Academic Conduct,1
+AU Arriving Unprepared,Academic Conduct,1
+FIBWRP Fighting while Rep.,Academic Conduct,2
+L2b-Cheating/Plagiarism,Academic Conduct,3
+CP Cheating/Plagarism,Academic Conduct,3
+Attendance,Attendance,3
+L2a-Cut/Leave Class w/o Permission,Attendance,3
+CLCWP Cut/Leave w/o Permis,Attendance,3
+OS Out of Seat,Attendance,3
+LSGWP Leave w/o permission,Attendance,3
+L3-Bullying/Intimidation/Cyber Bullying,Bullying,4
+BI Bullying/Intmidation,Bullying,4
+L2b-Poss. Illegal Drug Paraphernalia,Dangerous Items,4
+L3 Poss. Drug/Weapons In/On/To-From/Rep.,Dangerous Items,5
+PDWSG Poss. Drugs/Weapon,Dangerous Items,5
+L1-Inappropriate display of Affection,Defiance,1
+PDA Public Affection,Defiance,1
+DC Disrupting Class,Defiance,2
+L2a-Disrupting Class,Defiance,2
+L3-Defiance/Flagrant/Disrespectful,Defiance,3
+OD Open Defiance,Defiance,3
+FDB Flagrant/Disruptive,Defiance,3
+EBFSGS Embarassing Behavior,Defiance,3
+L3-Sexual Acts,Defiance,3
+Z1 -OD Open Defiance,Defiance,3
+L2b-Poss. Gambling Paraphernalia,Defiance,3
+L3-Gambling In/On/To-From/Rep. PCS,Defiance,3
+SASP Sexual Acts @ School,Defiance,3
+L3-Embarassing/Disruptive on FS/Guests,Defiance,4
+L3-Leaving School w/o Permission,Defiance,4
+L3-Smoking In/On/To-From/Rep. Pcs,Defiance,4
+L3-Under Infulence Drugs/Alcohol,Defiance,5
+L3-Pornography on School Grounds,Defiance,5
+ALC,Defiance,5
+COP Checking out Porn,Defiance,5
+L2b-Lying/Dishonesty,Dishonesty,3
+LD Lying/Dishonesty,Dishonesty,3
+L2b-Forging Parent Signature,Dishonesty,3
+FPS Forging Signature,Dishonesty,3
+L3-Endangering Safety of Others,Endangering Others,5
+ESO Endangering Others,Endangering Others,5
+L3-Mob Action,Gang,5
+L3-Gang Promotion,Gang,5
+GP Gang Promotion,Gang,5
+L2b-Instigating/Encourage Level 2 Behavior,Incitation,3
+L3-Instigating/Encourage Level 3 Behavior,Incitation,5
+L3-Soliciting NonPCS Student for Assault,Incitation,5
+L1-Improper Uniform,Noncompliance,1
+L1-Chewing Gum,Noncompliance,1
+L2-Using Cell/Pager/Electronic Devices,Noncompliance,1
+L1-In Hall w/o Pass,Noncompliance,1
+IU Improper Uniform,Noncompliance,1
+L1-Food/Drink Outside Cafe.,Noncompliance,1
+L1-Sleeping in Class,Noncompliance,1
+CG Chewing Gum,Noncompliance,1
+VSPPD Visible Cell/Page,Noncompliance,1
+FOC Food out of Cafe.,Noncompliance,1
+IHWP In Hall w/o Pass,Noncompliance,1
+VHDSD Visible Headphones,Noncompliance,1
+L2a-Poor Sportsmanship,other,2
+PS Poor Sportsmanship,other,2
+TTMC Throwing in Class,Physical Aggression,1
+L2b-Play Fighting,Physical Aggression,2
+L1-Tossing/Throwing Materials in Class,Physical Aggression,2
+L2b-Food Fight/Throwing Food,Physical Aggression,2
+PF Play Fighting,Physical Aggression,2
+FFTF Food Figth/Throwing,Physical Aggression,2
+L3-Fighting/Behavior In/To-From/Rep. PCS,Physical Aggression,3
+L3-Destruction of Any PCS Property,Physical Aggression,5
+DSP Destruction-Sch Prop,Physical Aggression,5
+VATS Violence on Staff,Physical Aggression,5
+L3-Sexual Harrassment Physical/Written/Verbal,Sexual Harassment,5
+L3-Violating Sexual Harassment Policy,Sexual Harassment,5
+SXH,Sexual Harassment,5
+SH Sexual Harassment,Sexual Harassment,5
+L1-Tardy to class/Not in Seat,Tardy,2
+T Tardy,Tardy,2
+L3-Thievery,Theft,4
+TH Thievery,Theft,4
+L1-Using Innocuous Profanity,Verbal Aggression,1
+L1-Name Calling other Students,Verbal Aggression,1
+L1-Saying Shut Up,Verbal Aggression,1
+IP Innocuous Profanity,Verbal Aggression,1
+SSU Saying Shut Up,Verbal Aggression,1
+L2a-Talking Back to Staff,Verbal Aggression,2
+L2b-Cursing,Verbal Aggression,2
+TBSM Talking Back 2 Staff,Verbal Aggression,2
+L3-Cursing at Teacher/Staff,Verbal Aggression,3
+CTS Cursing @ Teach/Stud,Verbal Aggression,3
+L3-Violence/Threatening Staff,Verbal Aggression,4
+L3-Malicious Slurs,Verbal Aggression,4
+MS Malicious Slurs,Verbal Aggression,4
+L3-Threat Against School,Verbal Aggression,5
+TAS Threat against PCS,Verbal Aggression,5
+ATT,,
+FIT,,
+OMC,,
+TRE,,
+DOC,,
+DRG,,
+TBC,,
+STL,,
+TRS,,
+WPO,,

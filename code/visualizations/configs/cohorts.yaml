@@ -1,0 +1,136 @@
+##################################################################
+#                    College Persistence                         #
+#                  Config File for cohorts                       #
+##################################################################
+
+
+############################
+# Sliding window setup     #
+############################
+
+earliest_train_start: 2011-07-01
+latest_train_start: 2011-07-01
+train_period_months: 48
+time_steps_months: 48
+
+
+########################################################
+# Model selection                                      #
+# Note: If a parameter is given as a list, we will     #
+# try out all its values. (So if a single parameter is #
+# supposed to be a list, you have to nest it!)         #
+########################################################
+models:
+- LogisticRegression:
+   implementation: scikit
+   penalty: [l2]
+   C: [0.05,0.1,0.2,1.0]
+- RandomForest:
+   n_estimators: [25,300,1500]
+   criterion: gini
+   max_depth: [1,2,3,5,15]
+
+############################
+# Feature lists            #
+############################
+features:
+- finalUnweightedGPA
+- StudentEthnicity
+- StudentGender
+- HighSchoolMostRecentlyAttended
+- StudentAgeAtEnrollment
+- AlumsEverAttendedSpecificCollege
+- isForProfit
+- isPrivate
+- historicallyBlackCollege
+# - sixYearMinorityTransferRate
+# - sixYearTransferRate
+# - sixYearMinorityGraduationRate
+- sixYearGraduationRate
+# - avgRankYear12
+- avgRankYear11
+# - avgRankYear10
+# - highestCompositeACT
+# - numberAPsYear12
+- numberAPsYear11
+# - numberAPsYear10
+# - numberHonsYear12
+- numberHonsYear11
+# - numberHonsYear10
+# - maxRankYear12
+- maxRankYear11
+# - maxRankYear10
+# - minRankYear12
+- minRankYear11
+# - minRankYear10
+# - avgRankYear12
+- avgRankYear11
+# - avgRankYear10
+- totalNumberofContacts
+# - ContactMediumPercentages
+- everSpecialEd
+- everFreeLunch
+- isFirstGen
+- degreeSubject
+- IsFirstEnrollment
+- AvgHSAway
+- AvgHSTardy
+- AvgHSUnexcused
+- AvgHSExcused
+- AvgHSSuspended
+- AvgHSEarlyDismissal
+# - AvgMSAway
+# - AvgMSTardy
+# - AvgMSUnexcused
+# - AvgMSExcused
+# - AvgMSSuspended
+# - AvgMSEarlyDismissal
+
+
+############################
+# Target variable          #
+############################
+target:
+# - PersistOneSemester
+# - PersistTwoSemesters
+- PersistThreeSemesters
+# - PersistFourSemesters
+# - PersistFiveSemesters
+# - PersistSixSemesters
+# - PersistSevenSemesters
+# - PersistEightSemesters
+
+
+############################
+# Sample selection         #
+############################
+sample: # TODO figure out what to pass here / is it safe / what's a good idea?
+# - PersistOneSemester: = True
+- PersistTwoSemesters: =True
+# - PersistThreeSemesters: = True
+# - PersistFourSemesters: = True
+# - PersistFiveSemesters: = True
+# - PersistSixSemesters: = True
+# - PersistSevenSemesters: = True
+- DegreeType: ='Bachelors'
+- NetworkKIPPNJ: =False
+- NetworkNoble: =True
+
+
+############################
+# Cross Validation         #
+############################
+k: 10
+
+
+###########################
+# Database Schema         #
+###########################
+schema: common
+
+
+############################
+# Output                   #
+############################
+looplog: 'cohort_logs.md'
+logFolder: cohort_logs

@@ -1,0 +1,11 @@
+Markdown
+matplotlib
+numpy
+pandas
+psycopg2
+scikit-learn
+scipy
+seaborn
+SQLAlchemy
+mock
+pyyaml

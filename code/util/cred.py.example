@@ -1,0 +1,4 @@
+user = 'myUserName'
+host = 'hostURL'
+pw = 'myPassword'
+dbname = 'myDBName'
